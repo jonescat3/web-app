@@ -66,8 +66,26 @@ $.getJSON("/articles", function(data) {
         $("#notes").empty();
       });
   
-    // Also, remove the values entered in the input and textarea for note entry
+    // Also, remove the values entered in the input and text area for note entry
     $("#titleinput").val("");
     $("#bodyinput").val("");
   });
   
+  $(document).on("click", "#scrape", function() {
+
+    $.ajax({
+      method: "GET",
+      url: "/scrape"
+    })
+      // With that done
+      .then(function(data) {
+        // Log the response
+        console.log(data);
+      });
+  
+   
+  });
+
+
+
+

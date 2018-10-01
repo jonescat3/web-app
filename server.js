@@ -9,8 +9,6 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-// Require all models
-var db = require("./models");
 
 var PORT = 3000;
 
@@ -29,12 +27,16 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/week18Populater", { useNewUrlParser: true });
 
+// Require all models
+var db = require("./models");
+
+
 // Routes
 
-// A GET route for scraping the echoJS website
+// A GET route for scraping the NYT website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  axios.get("http://www.echojs.com/").then(function(response) {
+  axios.get("https://www.newyorktimes.com/").then(function(error, response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
 
@@ -70,6 +72,7 @@ app.get("/scrape", function(req, res) {
 
 // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
+  console.log(db);
   // Grab every document in the Articles collection
   db.Article.find({})
     .then(function(dbArticle) {
