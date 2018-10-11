@@ -1,50 +1,157 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Scraping With Mongoose</title>
-    <style>
-      body { background-color: #F2F6D0 }
-      #wrapper {
-        width: 960px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 5%;
-      }
-      #articles {
-        display: inline-block;
-        overflow: auto;
-        width: 60%;
-        height: 700px;
-      }
-      #notes {
-        float: right;
-        width: 30%;
-      }
-      textarea, input {
-        display: block;
-        width: 100%;
-        background-color: #FCF5C7;
-      }
-      input {
-        height: 36px;
-        font-size: 24px;
-      }
-      textarea {
-        height: 200px;
-        font-size: 18px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="wrapper">
-      <div id="articles"></div>
-      <div id="notes"></div>
-      <h1>Mongoose Scraper</h1>
-      <button id="scrape"> scrape articles</button>
+<html lang="en">
 
+<head>
+  <title>Mongo Scraper</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/materia/bootstrap.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+SC" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">Mongo Scraper</a>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/saved">Saved Articles</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-danger scrape-new">SCRAPE NEW ARTICLES!</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-danger clear">CLEAR ARTICLES!</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <div class="overlay">
+  </div>
+  <div class="background-image">
+  </div>
+  <div class="caption">
+    <h1>Mongo Scraper</h1>
+    <p>New York Times Edition</p>
+  </div>
+</div>
+<div class="container-fluid article-container">
+  <div data-_id="5bba703e7cac970014ada5be" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/2018/10/07/arts/television/snl-kavanaugh-confirmation-celebration-awkwafina-hosts.html">On ‘S.N.L.,’ a Locker Room Celebration for Kavanaugh’s Confirmation</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="app.js"></script>
-  </body>
+    <div class="card-body">Plus, Pete Davidson addresses Kanye West’s impromptu post-credits speech.</div>
+  </div>
+    <div data-_id="5bba703e7cac970014ada5bc" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/2018/10/07/opinion/who-will-pay-for-the-mess-of-the-kavanaugh-confirmation-all-the-women.html">Who Will Pay for the Mess of the Kavanaugh Confirmation? All the Women.</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
+    </div>
+    <div class="card-body">Christine Blasey Ford. Deborah Ramirez. Julie Swetnick. Lisa Murkowski. Even Amy Chua. They will face the consequences. Justice Kavanaugh won’t.</div>
+  </div>
+    <div data-_id="5bba703e7cac970014ada5bd" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/2018/10/06/style/carmen-electra.html">Around the World in a Day With Carmen Electra</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
+    </div>
+    <div class="card-body">Ms. Electra, a shining vision of American success, keeps totally making it.</div>
+  </div>
+    <div data-_id="5bba703e7cac970014ada5ba" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/2018/10/06/arts/11-of-our-best-weekend-reads.html">11 of Our Best Weekend Reads</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
+    </div>
+    <div class="card-body">President Trump and the myth of the self-made man. Lady Gaga is still shape-shifting. What makes “The Good Place” so good? What’s a postpartum doula? And more.</div>
+  </div>
+    <div data-_id="5bba703e7cac970014ada5bb" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/2018/10/06/opinion/me-too-weinstein-one-year.html">‘This Moment Turned Out to Be Fleeting’</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
+    </div>
+    <div class="card-body">Nine reflections on #MeToo, one year on.</div>
+  </div>
+    <div data-_id="5bba703e7cac970014ada5b9" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/2018/10/07/world/asia/china-interpol-men-hongwei.html">Interpol President Is Detained by China and Has Quit His Post</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
+    </div>
+    <div class="card-body">The Chinese Communist Party announced that the missing president of Interpol was under investigation on “suspicion of violating the law.”</div>
+  </div>
+    <div data-_id="5bba703e7cac970014ada5b8" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/2018/10/07/us/politics/democrats-kavanaugh-supreme-court.html">On the Left, Eyeing More Radical Ways to Fight Kavanaugh</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
+    </div>
+    <div class="card-body">Facing a Supreme Court with five solidly conservative justices, liberals have already started to discuss ways to eventually undo the bloc’s power.</div>
+  </div>
+    <div data-_id="5bba703e7cac970014ada5b7" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.comhttps://www.nytimes.com/tips">Got a confidential news tip?</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
+    </div>
+    <div class="card-body">Do you have the next big story? Share it with our journalists.</div>
+  </div>
+    <div data-_id="5bba703e7cac970014ada5b6" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/2018/10/05/dining/reward-your-future-self.html">Sign Up for ‘Weeknight Recipes’</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
+    </div>
+    <div class="card-body">Face down a busy week by cooking a big batch of chili.</div>
+  </div>
+    <div data-_id="5bba703e7cac970014ada5b5" class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" target="_blank" rel="noopener noreferrer" href="https://www.nytimes.com/2018/10/07/briefing/your-weekend-briefing-kavanaugh-trumps-taxes-nobel-prizes.html">Your Weekend Briefing</a>
+        <a class="btn btn-success save">Save Article</a>
+      </h3>
+    </div>
+    <div class="card-body">Here’s what you need to know about the week’s top stories.</div>
+  </div>
+   </div>
+
+<footer class="footer">
+  <div class="container">
+    <p>New York Times Mongo Scraper</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script src="/assets/javascript/index.js"></script>
+
+</body>
+
 </html>
