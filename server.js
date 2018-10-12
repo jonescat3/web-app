@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/week18Populater", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI||"mongodb://localhost/week18Populater", { useNewUrlParser: true });
 
 // Require all models
 var db = require("./models");
