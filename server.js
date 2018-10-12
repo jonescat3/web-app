@@ -121,6 +121,9 @@ app.post("/articles/:id", function(req, res) {
     });
 });
 
+//to prevent errors
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Start the server
 app.listen(process.env.PORT||PORT, function() {
   console.log("App running on port " + PORT + "!");
