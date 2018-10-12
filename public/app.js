@@ -47,7 +47,7 @@ $.getJSON("/articles", function(data) {
     // Grab the id associated with the article from the submit button
     var thisId = $(this).attr("data-id");
   
-    // Run a POST request to change the note, using what's entered in the inputs
+    // Run a POST request to change the note. Use what's entered in the inputs
     $.ajax({
       method: "POST",
       url: "/articles/" + thisId,
@@ -58,7 +58,7 @@ $.getJSON("/articles", function(data) {
         body: $("#bodyinput").val()
       }
     })
-      // With that done
+      // .then
       .then(function(data) {
         // Log the response
         console.log(data);
