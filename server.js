@@ -22,7 +22,7 @@ app.use(logger("dev"));
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI||"mongodb://localhost/week18Populater", { useNewUrlParser: true });
@@ -120,9 +120,6 @@ app.post("/articles/:id", function(req, res) {
       res.json(err);
     });
 });
-
-//to prevent errors
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Start the server
 app.listen(process.env.PORT||PORT, function() {
